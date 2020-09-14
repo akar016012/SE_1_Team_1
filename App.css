@@ -1,0 +1,33 @@
+body {
+  background-image: url("./files/pattern_texture_red_psychedelic_1920x1080.jpg");
+}
+
+.container {
+  margin: 150px 500px;
+  background-color: rgba(241, 238, 238, 0.5);
+  padding: 10%;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+input {
+  padding: 5px;
+  background-color: orange;
+  left: 50%;
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#next-button {
+  height: 4rem;
+  position: absolute;
+  left: 48.5%;
+  top: 45%;
+  cursor: pointer;
+  transition: width 10s ease-in-out;
+}
+
+#next-button:active {
+  padding: 0px 4px;
+}
