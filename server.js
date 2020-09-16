@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const io = socket_io(server);
 
 //Logs when client connects to the server.
-io.on("connect", (socket) => {
+io.on("connection", (socket) => {
   console.log("New client connected!!");
 });
 
