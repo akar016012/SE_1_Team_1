@@ -13,3 +13,24 @@ input {
   bottom: 8%;
   width: 90%;
 }
+ul {
+  max-height: 25rem;
+  overflow-y: auto;
+}
+
+ul::-webkit-scrollbar {
+  background-color: #dd841e;
+  border-radius: 10px;
+}
+ul::-webkit-scrollbar-thumb {
+  background-color: #0f0808;
+  border: 1px solid #333333;
+  border-radius: 10px;
+}
+
+ul > li {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  margin-top: 0.5em;
+}
