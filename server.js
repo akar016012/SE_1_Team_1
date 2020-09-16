@@ -22,7 +22,7 @@ io.on("connection", (socket) => {
 });
 
 //@pinglet
-// Parket was her.. 
+// Parket was here.. 
 
 //----
 
