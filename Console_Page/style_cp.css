@@ -6,10 +6,10 @@ body {
   padding: 20% 20px;
   background-color: rgb(20, 20, 20, 0.85);
   margin: 4% 30%;
-  position: absolute;
-}
-
-textarea {
   position: relative;
-  margin-bottom: -50%;
+}
+input {
+  position: absolute;
+  bottom: 8%;
+  width: 90%;
 }
