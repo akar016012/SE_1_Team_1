@@ -24,10 +24,9 @@ input {
 }
 
 #next-button {
-  height: 4rem;
+  height: 2rem;
   position: absolute;
-
-  left: 47%;
+  left: 60%;
   top: 55%;
   cursor: pointer;
   transition: width 10s ease-in-out;
