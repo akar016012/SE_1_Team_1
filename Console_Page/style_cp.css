@@ -1,0 +1,15 @@
+body {
+  background-image: url("./Leaves.jpg");
+}
+
+.container {
+  padding: 20% 20px;
+  background-color: rgb(20, 20, 20, 0.85);
+  margin: 4% 30%;
+  position: absolute;
+}
+
+textarea {
+  position: relative;
+  margin-bottom: -50%;
+}
