@@ -1,1 +1,5 @@
-alert("app.js is connected");
+const socket = io();
+
+socket.on("message", (message) => {
+  alert(message);
+});
