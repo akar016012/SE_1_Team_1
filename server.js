@@ -1,6 +1,19 @@
 const express = require("express");
 const app = express();
-app.listen("4500", () => {
+const http = require("http");
+const socket_io = require("socket.io");
+
+//Server
+const server = http.createServer(app);
+const io = socket_io(server);
+
+//Logs when client connects to the server.
+io.on("connect", (socket) => {
+  console.log("New client connected!!");
+});
+
+//PORT settings
+server.listen("4500", () => {
   console.log(`Server running on port 4500`);
 });
 
