@@ -3,6 +3,7 @@ const app = express();
 const http = require("http");
 const socket_io = require("socket.io");
 const winston = require("winston");
+const moment = require("moment");
 
 //Winston logger with  time addition
 const logger = winston.createLogger({
@@ -14,14 +15,14 @@ const io = socket_io(server);
 
 //Logs when client connects to the server.
 io.on("connection", (socket) => {
-  logger.info("New client connected!!");
+  logger.info(`${moment().format("[]L []LTS")} -> New client connected!!`);
 
   //when client connects
   io.emit("message", `"user" has joined the chat`);
 
   //Runs when client disconnects
   socket.on("disconnect", () => {
-    logger.info("user has left the chat!!");
+    logger.info(`${moment().format("[]L []LTS")} -> user has left the chat!!`);
     io.emit("message", `user has left the chat`);
   });
 });
@@ -34,7 +35,9 @@ io.on("connection", (socket) => {
 
 //PORT settings
 server.listen("4500", () => {
-  logger.info(`Server running on port 4500`);
+  logger.info(
+    `${moment().format("[]L []LTS")} ->  Server running on port 4500`
+  );
 });
 
 //setting static path!! ||  @akar016012
