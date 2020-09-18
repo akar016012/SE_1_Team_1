@@ -2,24 +2,30 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const socket_io = require("socket.io");
+const winston = require("winston");
 
+//Winston logger with  time addition
+const logger = winston.createLogger({
+  transports: [new winston.transports.Console({ timestamp: true })],
+});
 //Server
 const server = http.createServer(app);
 const io = socket_io(server);
 
 //Logs when client connects to the server.
 io.on("connection", (socket) => {
-  console.log("New client connected!!");
+  logger.info("New client connected!!");
 
   //when client connects
   io.emit("message", `"user" has joined the chat`);
 
   //Runs when client disconnects
   socket.on("disconnect", () => {
-    console.log("user has left the chat!!");
+    logger.info("user has left the chat!!");
     io.emit("message", `user has left the chat`);
   });
 });
+//@ak
 
 //@pinglet
 // Parket was here.. 
@@ -28,7 +34,7 @@ io.on("connection", (socket) => {
 
 //PORT settings
 server.listen("4500", () => {
-  console.log(`Server running on port 4500`);
+  logger.info(`Server running on port 4500`);
 });
 
 //setting static path!! ||  @akar016012
