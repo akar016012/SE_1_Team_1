@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require("express"); //library to handle the port and server.
 const app = express();
 const http = require("http");
-const socket_io = require("socket.io");
-const winston = require("winston");
-const moment = require("moment");
+const socket_io = require("socket.io"); //library to handle socket.
+const winston = require("winston"); // library to handle logging
+const moment = require("moment"); // library to handle time and dates.
 
 //Winston logger with  time addition
 const logger = winston.createLogger({
