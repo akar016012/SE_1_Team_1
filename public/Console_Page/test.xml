@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--XML test file-->
+<patients>
+    <patient>
+        <name>Parker</name>
+        <age>24</age>
+        <weight>165</weight>
+        <height>6'1"</height>
+    </patient>
+
+    <patient>
+        <name>Susan</name>
+        <age>45</age>
+        <weight>125</weight>
+        <height>5'4"</height>
+    </patient>
+
+    <patient>
+        <name>Susan</name>
+        <age>33</age>
+        <weight>145</weight>
+        <height>5'7"</height>
+    </patient>
+
+</patients>
+
