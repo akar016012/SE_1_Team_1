@@ -41,5 +41,3 @@ server.listen("4500", () => {
 
 //setting static path!! ||  @akar016012
 app.use(express.static("public"));
-
-//to add into the github // git add . // git commit -m "comment from my side" //git push
