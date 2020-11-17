@@ -1,5 +1,5 @@
 body {
-  background-image: url("./Leaves.jpg");
+  background-image: url("./pexels-daria-shevtsova-1884306.jpg");
 }
 
 .container {
@@ -7,6 +7,17 @@ body {
   background-color: rgb(20, 20, 20, 0.85);
   margin: 4% 30%;
   position: relative;
+}
+
+.btn{
+  background: #dd841e;
+  position: absolute;
+  bottom: 8%;
+  width: 10%;
+  right: 5%;
+cursor: pointer;
+  color: rgb(0, 0, 0);
+  outline-color: maroon;
 }
 input {
   position: absolute;
@@ -37,3 +48,5 @@ ul > li {
   color: white;
   margin-top: 0.5em;
 }
+
+

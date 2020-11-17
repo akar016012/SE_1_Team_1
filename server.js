@@ -4,6 +4,8 @@ const http = require("http");
 const socket_io = require("socket.io"); //library to handle socket.
 const winston = require("winston"); // library to handle logging
 const moment = require("moment"); // library to handle time and dates.
+const formatMessage = require("./stuff/messages");
+const { userJoin, getCurrentUser } = require("./stuff/user");
 
 //Winston logger with  time addition
 const logger = winston.createLogger({
@@ -15,18 +17,36 @@ const io = socket_io(server);
 
 //Logs when client connects to the server.
 io.on("connection", (socket) => {
-  logger.info(`${moment().format("[]L []LTS")} -> New client connected!!`);
+  socket.on("joinUser", ({ username }) => {
+    const user = userJoin(socket.id, username);
 
-  //when client connects
-  io.emit("message", `"user" has joined the chat`);
+    logger.info(
+      `${moment().format("[]L []LTS")} -> New client ${
+        user.username
+      } connected!!`
+    );
+    socket.emit("message", formatMessage(`Admin`, `Welcome  ${user.username}`));
+
+    //when client connects
+    socket.broadcast.emit(
+      "message",
+      formatMessage(`Admin`, `${user.username} has joined the chat`)
+    );
+  });
 
   //Runs when client disconnects
   socket.on("disconnect", () => {
-    logger.info(`${moment().format("[]L []LTS")} -> user has left the chat!!`);
-    io.emit("message", `user has left the chat`);
+    logger.info(`${moment().format("[]L []LTS")} -> User has left the chat!!`);
+    io.emit("message", formatMessage(`Admin`, `User has left the chat`));
+  });
+
+  //Listen for char message.
+  socket.on("chartMessage", (msg) => {
+    const user = getCurrentUser(socket.id);
+
+    io.emit("message", formatMessage(user.username, msg));
   });
 });
-//@ak
 
 //PORT settings
 server.listen("4500", () => {
