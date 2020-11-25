@@ -1,11 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:complexType name="patient">
-        <sequence>
-            <xs:element name ="name" type="string"><xs:element>
-            <xs:element name="age" type="integer"><xs:element>
-            <xs:element name="weight" type="integer"><xs:element>
-            <xs:element name="height" type="integer"><xs:element>
-        </sequence>
-    <xs:complexType>
-</xs:schema>
+<!DOCTYPE Dataset [
+    <!-- Dataset is the parent value -->
+    <!ELEMENT Dataset (id, clump_thickness, uniformity_cell_size, uniformity_cell_shape, marginal_adhesion, 
+        single_epithelial_cell_size, bare_nuclei, bland_chromatin, normal_nucleoli, mitoses, class) >
+    <!-- Element Format: Name of variable (Type of data) -->
+    <!ELEMENT id (#PCDATA) >
+    <!ELEMENT clump_thickness (#PCDATA) >
+    <!ELEMENT uniformity_cell_size (#PCDATA) >
+    <!ELEMENT uniformity_cell_shape (#PCDATA) >
+    <!ELEMENT marginal_adhesion (#PCDATA) >
+    <!ELEMENT single_epithelial_cell_size (#PCDATA) >
+    <!ELEMENT bare_nuclei (#PCDATA) >
+    <!ELEMENT bland_chromatin (#PCDATA) >
+    <!ELEMENT normal_nucleoli (#PCDATA) >
+    <!ELEMENT mitoses (#PCDATA) >
+    <!ELEMENT class (#PCDATA) > <!-- 2 for benign, 4 for malignant -->
+]>

@@ -21,10 +21,7 @@ io.on("connection", (socket) => {
   });
 });
 
-//@pinglet
-// Parket was here.. 
-
-//----
+console.log("hello"); 
 
 //PORT settings
 server.listen("4500", () => {
