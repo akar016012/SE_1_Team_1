@@ -1,20 +1,60 @@
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      xmlread(this);
-    }
-  };
-  xhttp.open("GET", "test.xml", true);
-  xhttp.send();
-}
-function xmlread(xml) {
-  var i;
-  var xmlDoc = xml.responseXML;
-  var table = "<tr><th>Title</th><th>Patient Data</th></tr>";
-  var x = xmlDoc.getElementsByTagName("CD");
-  for (i = 0; i < x.length; i++) {
-    console.log(x[i].getElementById());
+var xmlHttp = createXmlHttpRequestObject();
+
+//create object
+function createXmlHttpRequestObject() {
+  var xmlHttp;
+  if (window.XMLHttpRequest) {
+    xmlHttp = new XMLHttpRequest();
+  } else {
+    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
-  document.getElementById("demo").innerHTML = table;
+  return xmlHttp;
+}
+
+// called onload
+function process() {
+  if (xmlHttp) {
+    try {
+      xmlHttp.open("GET", "publicConsole_Page\test.xml", true);
+      xmlHttp.onreadystatechange = handleStateChange;
+      xmlHttp.send();
+    } catch (e) {
+      alert("in process");
+    }
+  }
+}
+
+// when state changes
+function handleStateChange() {
+  if (xmlHttp.readyState == 4) {
+    if (xmlHttp.status == 200) {
+      try {
+        handleResponse();
+      } catch (e) {
+        alert("in handleStateChange");
+      }
+    } else {
+      alert(xmlHttp.statusText);
+    }
+  }
+}
+
+// handle response from server
+function handleResponse() {
+  var xmlResponse = xmlHttp.responseXML;
+  root = xmlResponse.documentElement;
+  id = root.getElementByTagName("id");
+  thickness = root.getElementByTagName("clump_thickness");
+
+  var stuff = "";
+  for (var i = 0; i < id.length; i++) {
+    stuff =
+      id.item(i).firstChild.data +
+      " - " +
+      thickness.item(i).firstChild.data +
+      "<br/>";
+  }
+
+  theD = document.getElementById("theD");
+  theD.innerHTML = stuff;
 }
