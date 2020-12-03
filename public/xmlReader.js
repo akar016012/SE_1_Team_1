@@ -15,7 +15,7 @@ function createXmlHttpRequestObject() {
 function process() {
   if (xmlHttp) {
     try {
-      xmlHttp.open("GET", "publicConsole_Page\test.xml", true);
+      xmlHttp.open("GET", "test.xml", true);
       xmlHttp.onreadystatechange = handleStateChange;
       xmlHttp.send();
     } catch (e) {
