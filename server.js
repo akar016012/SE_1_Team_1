@@ -49,7 +49,7 @@ io.on("connection", (socket) => {
 });
 
 //PORT settings
-server.listen("4500", () => {
+server.listen("4500", "0.0.0.0", () => {
   logger.info(
     `${moment().format("[]L []LTS")} ->  Server running on port 4500`
   );
